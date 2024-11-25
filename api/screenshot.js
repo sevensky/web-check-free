@@ -1,6 +1,10 @@
 const puppeteer = require('puppeteer-core');
-const chromium = require('chrome-aws-lambda');
+//const chromium = require('chrome-aws-lambda');
+const chromium = require("@sparticuz/chromium-min");
 const middleware = require('./_common/middleware');
+
+const remoteExecutablePath =
+  "https://github.com/Sparticuz/chromium/releases/download/v123.0.1/chromium-v123.0.1-pack.tar";
 
 const handler = async (targetUrl) => {
 
@@ -23,7 +27,7 @@ const handler = async (targetUrl) => {
       browser = await puppeteer.launch({
       args: [...chromium.args, '--no-sandbox'], // Add --no-sandbox flag
       defaultViewport: { width: 800, height: 600 },
-      executablePath: process.env.CHROME_PATH || await chromium.executablePath,
+      executablePath: process.env.CHROME_PATH || await chromium.executablePath(remoteExecutablePath),
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
       ignoreDefaultArgs: ['--disable-extensions'],
