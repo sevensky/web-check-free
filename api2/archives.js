@@ -1,5 +1,5 @@
 const axios = require('axios');
-const middleware = require('./_common/middleware');
+const middleware = require('../api/_common/middleware');
 
 const convertTimestampToDate = (timestamp) => {
   const [year, month, day, hour, minute, second] = [

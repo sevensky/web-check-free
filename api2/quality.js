@@ -1,5 +1,5 @@
 const axios = require('axios');
-const middleware = require('./_common/middleware');
+const middleware = require('../api/_common/middleware');
 
 const handler = async (url, event, context) => {
   const apiKey = process.env.GOOGLE_CLOUD_API_KEY;

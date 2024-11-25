@@ -1,5 +1,5 @@
 const https = require('https');
-const middleware = require('./_common/middleware');
+const middleware = require('../api/_common/middleware');
 
 const handler = async (url) => {
   const apiKey = process.env.BUILT_WITH_API_KEY;
